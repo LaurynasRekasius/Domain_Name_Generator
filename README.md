@@ -1,1 +1,1 @@
-# Domain_Name_Generator
+# Domain Name Generator
