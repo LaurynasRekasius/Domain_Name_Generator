@@ -13,8 +13,8 @@ Develop and deploy an API endpoint that leverages LLM to generate domain name su
   - [Fine-Tuning](https://github.com/LaurynasRekasius/Domain_Name_Generator/blob/main/notebooks/LLM_Fine_Tuning.ipynb)
 
 ✅ 3. Deploy the fine-tuned models to HF:
-  - [Mistral 7B](https://huggingface.co/Soaky/Mistral_dn_fix)
-  - [Phi-2](https://huggingface.co/Soaky/phi_2_dn)
+  - [Mistral 7B](https://huggingface.co/Soaky/Mistral_dn_V3)
+  - [Phi-2](https://huggingface.co/Soaky/phi_2_dn_v3)
 
 ✅ 4. Deploy API endpoint:
   - [HuggingFace Space](https://huggingface.co/spaces/Soaky/DN)
