@@ -23,12 +23,15 @@ Develop and deploy an API endpoint that leverages LLM to generate domain name su
 
 
 ## Project Overview
+This analysis reviews two open-source LLMs:
+  - Phi-2
+  - Mistal-7B
 
 ### Prompt Engineering
-Initial tests with prompt engineering yielded promising results. However, to enhance the accuracy and format consistency of the model's outputs, I proceeded with fine-tuning.
+Initial tests with prompt engineering yielded promising results. I tried basic prompts which yielded very bad results. More advanced one-shot and few-shot prompts managed to yield pretty good results for these small models. However, to enhance the accuracy and format consistency of the model's outputs, I proceeded with fine-tuning.
 
 ### Fine-Tuning and Data Generation
-I generated a synthetic dataset focused on concise business descriptions (up to 500 characters), aiming for output in a structured JSON format. This decision was driven by the need for straightforward integration with the domain team's processes and minimizing token usage. The fine-tuning process prioritized producing domain names in a simplified format (lowercase, without prefixes/suffixes), considering the domain team's subsequent validation process.
+To generate data faster I used Mistral API. The mix of Mistral 7b and Mixtral 8x7B models were used to generate all the required data. Synthetic dataset focused on concise business descriptions (up to 500 characters), aiming for output in a structured JSON format. This decision was driven by the need for straightforward integration with the domain team's processes and minimizing token usage. The fine-tuning process prioritized producing domain names in a simplified format (lowercase, without prefixes/suffixes), considering the domain team's subsequent validation process.
 
 ### Model Comparison and Selection
 The fine-tuning significantly improved output reliability. While Phi-2 showed improvement with extended prompts, Mistral-7B consistently delivered more appropriate suggestions suitable as domain names, with fewer edge cases and shorter prompts. Consequently, I selected Mistral-7B for deployment.
