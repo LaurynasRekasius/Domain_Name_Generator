@@ -36,6 +36,10 @@ To generate data faster I used Mistral API. The mix of Mistral 7b and Mixtral 8x
 ### Model Comparison and Selection
 The fine-tuning significantly improved output reliability. While Phi-2 showed improvement with extended prompts, Mistral-7B consistently delivered more appropriate suggestions suitable as domain names, with fewer edge cases and shorter prompts. Consequently, I selected Mistral-7B for deployment.
 
+![Performance Chart](https://github.com/LaurynasRekasius/Domain_Name_Generator/assets/13908912/8104deb7-1c82-4733-a7bf-92863fbbac27)
+
+Here performance was mainly measured based on the ability to consistently produce JSON output. When the best model was identified extra refinement was done to ensure the content inside the JSON is also what makes sense and in consistently good format.
+
 ### Deployment
 The model was deployed as a Gradio app on Hugging Face Spaces, providing a practical and cost-effective solution for immediate use, with the flexibility to migrate to alternative hosting solutions as necessary. This deployment has extra guardrails to ensure consistent output and was tested for 350 consecutive requests and produced 100% expected and correct output.
 
