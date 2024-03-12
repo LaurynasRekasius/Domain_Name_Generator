@@ -1,7 +1,7 @@
 # Domain Name Generator
 
 ## Goal:
-- Create LLM based solution that suggests domain names by the user-provided business description and deploy it as an API endpoint
+Develop and deploy an API endpoint that leverages LLM to generate domain name suggestions based on descriptions of businesses provided by users.
 
 ## Tasks:
 
@@ -22,19 +22,21 @@
 
 
 
-## Prompt Engineering
+## Project Overview
+
+### Prompt Engineering
 Initial tests with prompt engineering yielded promising results. However, to enhance the accuracy and format consistency of the model's outputs, I proceeded with fine-tuning.
 
-## Fine-Tuning and Data Generation
+### Fine-Tuning and Data Generation
 I generated a synthetic dataset focused on concise business descriptions (up to 500 characters), aiming for output in a structured JSON format. This decision was driven by the need for straightforward integration with the domain team's processes and minimizing token usage. The fine-tuning process prioritized producing domain names in a simplified format (lowercase, without prefixes/suffixes), considering the domain team's subsequent validation process.
 
-## Model Comparison and Selection
-The fine-tuning significantly improved output reliability. While Phi-2 showed improvement with extended prompts, Mistral-7B consistently delivered more appropriate suggestions suitable as domain names, with fewer edge cases. Consequently, I selected Mistral-7B for deployment.
+### Model Comparison and Selection
+The fine-tuning significantly improved output reliability. While Phi-2 showed improvement with extended prompts, Mistral-7B consistently delivered more appropriate suggestions suitable as domain names, with fewer edge cases and shorter prompts. Consequently, I selected Mistral-7B for deployment.
 
-## Deployment
-The model was deployed as a Gradio app on Hugging Face Spaces, providing a practical and cost-effective solution for immediate use, with the flexibility to migrate to alternative hosting solutions as necessary.
+### Deployment
+The model was deployed as a Gradio app on Hugging Face Spaces, providing a practical and cost-effective solution for immediate use, with the flexibility to migrate to alternative hosting solutions as necessary. This deployment has extra guardrails to ensure consistent output and was tested for 350 consecutive requests and produced 100% expected and correct output.
 
-## Recommendations for the Domain Team
+### Recommendations for the Domain Team
 
   API Usage:
   - Input: Business description in string format, ideally under 500 characters, without paragraphs or special characters.
@@ -42,7 +44,12 @@ The model was deployed as a Gradio app on Hugging Face Spaces, providing a pract
     
          {"names": ["gloweco", "naturasphere", "purelygreen", "ethicalessence", "planetbeauty"]}
     
-Validation: Each suggested name should be verified for domain availability before presenting to user.
+Validation: Each suggested name should be verified for domain availability before presenting it to the user.
 
 Performance Considerations: Assess response times and the ability to handle concurrent requests to ensure the chosen deployment solution meets demand effectively.
+
+Further improvements:
+- Model feedback loop implementation for continuous improvements. Collect real business descriptions and domain names users picked to refine recommendations.
+
+- Multilingual support could be the next step in making this tool more widely available. 
 
