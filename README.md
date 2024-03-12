@@ -22,25 +22,27 @@
 
 
 
-## Short projection implementation description:
+## Prompt Engineering
+Initial tests with prompt engineering yielded promising results. However, to enhance the accuracy and format consistency of the model's outputs, I proceeded with fine-tuning.
 
-For this task, I decided to focus on Phi-2 and Mistral-7B models as open-source models with permissive licenses for commercial usage and demonstrating strong performance in their respective sizes. 
+## Fine-Tuning and Data Generation
+I generated a synthetic dataset focused on concise business descriptions (up to 500 characters), aiming for output in a structured JSON format. This decision was driven by the need for straightforward integration with the domain team's processes and minimizing token usage. The fine-tuning process prioritized producing domain names in a simplified format (lowercase, without prefixes/suffixes), considering the domain team's subsequent validation process.
 
-The first step was to evaluate prompt engineering techniques and they showed pretty good results. However, to reduce the token usage and to increase model reliability to produce JSON responses I proceeded with fine-tuning.
+## Model Comparison and Selection
+The fine-tuning significantly improved output reliability. While Phi-2 showed improvement with extended prompts, Mistral-7B consistently delivered more appropriate suggestions suitable as domain names, with fewer edge cases. Consequently, I selected Mistral-7B for deployment.
 
-The first step for fine-tuning was to generate synthetic data. My goal was to focus on short business descriptions (up to 500 characters) and that model response would be in JSON format. The output format was considered important to ensure easy data digestion by the domain team down the line. Also, I decide to generate domain names without prefixes or suffixes and in lowercase. I assume that the domain team will need to validate which domain endings are available for suggested names. Also, this reduces the need for extra token usage.
+## Deployment
+The model was deployed as a Gradio app on Hugging Face Spaces, providing a practical and cost-effective solution for immediate use, with the flexibility to migrate to alternative hosting solutions as necessary.
 
-The fine-tuned models provided better reliability in the output format. Phi-2 outputs struggled and also benefited from extended prompts with output examples (few-shots prompt). Despite end results looking very similar and consistently producing JSON output further investigation showed that smaller model outputs often can't be used as domain names. Mistal output were much better in this regard and had very few edge cases that could be easily addressed with simple data manipulation operations. Also, it was possible to use the model with a short basic prompt. This let me confidently choose the Mistal-7b fine-tuned model as the option for deployment. 
+## Recommendations for the Domain Team
 
-For fast and easy usage, the model was deployed to the HF spaces as a Gradio app. This made it easy to add extra guardrails to ensure correct JSON output and was a cost-effective solution. Prepared files can be easily deployed to other hosting providers as needed.
+  API Usage:
+  - Input: Business description in string format, ideally under 500 characters, without paragraphs or special characters.
+  - Output: A JSON-formatted string, e.g.:
+    
+         {"names": ["gloweco", "naturasphere", "purelygreen", "ethicalessence", "planetbeauty"]}
+    
+Validation: Each suggested name should be verified for domain availability before presenting to user.
 
-
-## Further recommendations for Domain Team:
-  - API can be accessed:
-    - Input - business description as in string format without paragraphs or any other special characters. Idealy description should be less than 500 characters.
-    - Output - string in a valid JSON format that looks like this:
-      
-       {'names': ['gloweco', 'naturasphere', 'purelygreen', 'ethicalessence', 'planetbeauty']}
-  - Each suggested name needs to be checked for domain availability before being displayed to the user.
-  - Evaluate response times and required needs for parallel requests so that optimal deployment solutions can be chosen.
+Performance Considerations: Assess response times and the ability to handle concurrent requests to ensure the chosen deployment solution meets demand effectively.
 
