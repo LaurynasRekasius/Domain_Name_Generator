@@ -18,7 +18,7 @@ Develop and deploy an API endpoint that leverages LLM to generate domain name su
 
 ✅ 4. Deploy API endpoint:
   - [HuggingFace Space](https://huggingface.co/spaces/Soaky/DN)
-  - [Notebook with API testing]()
+  - [Notebook with API testing](https://github.com/LaurynasRekasius/Domain_Name_Generator/blob/main/notebooks/API_Endpoint.ipynb)
 
 
 
