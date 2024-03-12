@@ -24,8 +24,8 @@ Develop and deploy an API endpoint that leverages LLM to generate domain name su
 
 ## Project Overview
 This analysis reviews two open-source LLMs:
-  - Phi-2
-  - Mistal-7B
+  - [Phi-2](https://huggingface.co/microsoft/phi-2)
+  - [Mistal-7B](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2)
 
 ### Prompt Engineering
 Initial tests with prompt engineering yielded promising results. I tried basic prompts which yielded very bad results. More advanced one-shot and few-shot prompts managed to yield pretty good results for these small models. However, to enhance the accuracy and format consistency of the model's outputs, I proceeded with fine-tuning.
