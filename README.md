@@ -6,7 +6,7 @@ Develop and deploy an API endpoint that leverages LLM to generate domain name su
 ## Tasks:
 
 ✅ 1. Review LLMs and evaluate prompt engineering techniques & fine-tuning:
-  - [Results]
+  - [Results](https://github.com/LaurynasRekasius/Domain_Name_Generator/blob/main/notebooks/LLMs_Overview.ipynb)
 
 ✅ 2. Create a small dataset and fine-tune open-source LLMs:
   - [Synthetic data creation](https://github.com/LaurynasRekasius/Domain_Name_Generator/blob/main/notebooks/Synthetic_Data_Generation_Mistral.ipynb)
@@ -36,7 +36,7 @@ To generate data faster I used Mistral API. The mix of Mistral 7b and Mixtral 8x
 ### Model Comparison and Selection
 The fine-tuning significantly improved output reliability. While Phi-2 showed improvement with extended prompts, Mistral-7B consistently delivered more appropriate suggestions suitable as domain names, with fewer edge cases and shorter prompts. Consequently, I selected Mistral-7B for deployment.
 
-![Performance Chart](https://github.com/LaurynasRekasius/Domain_Name_Generator/assets/13908912/8104deb7-1c82-4733-a7bf-92863fbbac27)
+![Performance Chart](https://github.com/LaurynasRekasius/Domain_Name_Generator/assets/13908912/9c30f211-0558-4205-a68d-92f5c802233a)
 
 Here performance was mainly measured based on the ability to consistently produce JSON output. When the best model was identified extra refinement was done to ensure the content inside the JSON is also what makes sense and in consistently good format.
 
