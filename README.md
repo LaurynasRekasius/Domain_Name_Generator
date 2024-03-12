@@ -16,7 +16,7 @@ Develop and deploy an API endpoint that leverages LLM to generate domain name su
   - [Mistral 7B](https://huggingface.co/Soaky/Mistral_dn_V3)
   - [Phi-2](https://huggingface.co/Soaky/phi_2_dn_v3)
 
-✅ 4. Deploy API endpoint:
+✅ 4. Deploy API endpoint for selected model: **Fine-Tuned Mistral-7b**
   - [HuggingFace Space](https://huggingface.co/spaces/Soaky/DN)
   - [Notebook with API testing](https://github.com/LaurynasRekasius/Domain_Name_Generator/blob/main/notebooks/API_Endpoint.ipynb)
 
